@@ -125,11 +125,21 @@ let watchList = [
   },
 ];
 
-// const returnMovieTitle = (watchlist) => {
+const returnMovieTitle = (watchlist) => {
+  const filteredMovies = watchList.map((movie) => {
+    if (
+      movie.Director === "Christopher Nolan" &&
+      parseFloat(movie.imdbRating) > 8.0
+    ) {
+      return movie.Title;
+    }
+    return null;
+  });
 
-// Aquí adentro escriban la función
+  const validMovies = filteredMovies.filter((movie) => movie == !null);
 
-// }
+  return validMovies;
+};
 
-// const titlesArray = returnMovieTitle(watchList);
-// console.log(titlesArray);
+const titlesArray = returnMovieTitle(watchList);
+console.log(titlesArray);
